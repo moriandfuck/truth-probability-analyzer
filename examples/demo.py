@@ -32,14 +32,22 @@ def demo(text: str):
 
     # 综合评分
     print()
-    if "撒谎" in reply and "诚实" not in reply.replace("撒谎", ""):
+    if "【倾向】: 撒谎" in reply or "【倾向】:撒" in reply:
         final_score = min(score + 35, 95)
         print(f"  >>> 综合判定：倾向撒谎 | 最终评分: {final_score:.0f}/100")
-    elif "诚实" in reply:
+    elif "【倾向】: 诚实" in reply or "【倾向】:诚" in reply:
         final_score = max(score - 10, 5)
         print(f"  >>> 综合判定：倾向诚实 | 最终评分: {final_score:.0f}/100")
     else:
-        print(f"  >>> 综合判定：无法判断 | 参考评分: {score:.0f}/100")
+        # 兜底：在回复末尾找
+        if reply.rfind("撒谎") > reply.rfind("诚实"):
+            final_score = min(score + 35, 95)
+            print(f"  >>> 综合判定：倾向撒谎 | 最终评分: {final_score:.0f}/100")
+        elif reply.rfind("诚实") > reply.rfind("撒谎"):
+            final_score = max(score - 10, 5)
+            print(f"  >>> 综合判定：倾向诚实 | 最终评分: {final_score:.0f}/100")
+        else:
+            print(f"  >>> 综合判定：无法判断 | 参考评分: {score:.0f}/100")
     print("-" * 60)
 
 
