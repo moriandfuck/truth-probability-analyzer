@@ -17,7 +17,7 @@ class BaseLLMClient(ABC):
 
 class OllamaClient(BaseLLMClient):
     def __init__(self, host: str = None, port: str = None):
-        self.host = host or os.getenv("OLLAMA_HOST", "localhost")
+        self.host = host or os.getenv("OLLAMA_HOST", "127.0.0.1")
         self.port = port or os.getenv("OLLAMA_PORT", "11434")
         self.base_url = f"http://{self.host}:{self.port}"
 
@@ -25,7 +25,7 @@ class OllamaClient(BaseLLMClient):
         return True
 
     async def query(self, prompt: str, model: str = "deepseek-r1:7b", **kwargs) -> str:
-        async with httpx.AsyncClient(timeout=120.0) as client:
+        async with httpx.AsyncClient(timeout=120.0, trust_env=False) as client:
             try:
                 resp = await client.post(
                     f"{self.base_url}/api/generate",
@@ -55,7 +55,7 @@ class DeepSeekClient(BaseLLMClient):
     async def query(self, prompt: str, model: str = "deepseek-reasoner", **kwargs) -> str:
         if not self.api_key:
             return "[错误] 未配置 DeepSeek API Key"
-        async with httpx.AsyncClient(timeout=120.0) as client:
+        async with httpx.AsyncClient(timeout=120.0, trust_env=False) as client:
             try:
                 resp = await client.post(
                     self.base_url,
@@ -86,7 +86,7 @@ class OpenAIClient(BaseLLMClient):
     async def query(self, prompt: str, model: str = "gpt-4o", **kwargs) -> str:
         if not self.api_key:
             return "[错误] 未配置 OpenAI API Key"
-        async with httpx.AsyncClient(timeout=120.0) as client:
+        async with httpx.AsyncClient(timeout=120.0, trust_env=False) as client:
             try:
                 resp = await client.post(
                     "https://api.openai.com/v1/chat/completions",

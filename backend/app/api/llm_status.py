@@ -8,7 +8,7 @@ router = APIRouter()
 
 @router.get("/llm/status")
 async def llm_status():
-    host = os.getenv("OLLAMA_HOST", "localhost")
+    host = os.getenv("OLLAMA_HOST", "127.0.0.1")
     port = os.getenv("OLLAMA_PORT", "11434")
 
     ollama_available = False
@@ -23,7 +23,7 @@ async def llm_status():
         pass
 
     # Check Ollama
-    async with httpx.AsyncClient(timeout=5.0) as client:
+    async with httpx.AsyncClient(timeout=5.0, trust_env=False) as client:
         try:
             resp = await client.get(f"http://{host}:{port}/api/tags")
             if resp.status_code == 200:
