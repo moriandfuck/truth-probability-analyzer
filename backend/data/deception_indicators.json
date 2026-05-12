@@ -1,0 +1,64 @@
+{
+  "hedging_words": {
+    "description": "模糊限定词——说话者在回避明确表态",
+    "words": [
+      "maybe", "perhaps", "possibly", "probably", "kind of", "sort of",
+      "to be honest", "honestly", "frankly", "actually", "basically",
+      "I think", "I guess", "I believe", "as far as I know",
+      "可能吧", "也许", "大概", "差不多", "算是", "好像是", "按理说",
+      "说实话", "老实说", "讲真", "其实吧", "我觉得", "我以为", "据我所知",
+      "一定程度上", "不排除", "有这种可能"
+    ],
+    "weight": 0.3
+  },
+  "overemphasis_words": {
+    "description": "过度强调词——通过重复肯定来掩盖不确定",
+    "words": [
+      "absolutely", "definitely", "undoubtedly", "100%", "totally",
+      "completely", "I swear", "I promise", "believe me", "trust me",
+      "绝对", "肯定", "毫无疑问", "百分百", "完全", "压根",
+      "我发誓", "我保证", "相信我", "说真的", "天地良心",
+      "骗你是小狗", "对天发誓", "千真万确"
+    ],
+    "weight": 0.35
+  },
+  "distancing_language": {
+    "description": "距离化语言——用被动语态或第三人称回避责任",
+    "words": [
+      "it happened", "mistakes were made", "they say", "people say",
+      "reportedly", "allegedly", "apparently", "supposedly",
+      "据说", "听说", "有人说", "大家都说", "好像发生了",
+      "不小心", "不知道怎么就", "事情变成了这样",
+      "不是故意的", "我也没办法"
+    ],
+    "weight": 0.4
+  },
+  "unnecessary_details": {
+    "description": "过度细节——通过堆砌无关细节让故事听起来可信",
+    "indicators": [
+      "excessive time references", "too many names",
+      "irrelevant backstory", "over-explaining simple actions",
+      "精确到几点几分", "过多的人名地名", "无关的背景补充",
+      "反复解释简单动作", "时间线过于详细"
+    ],
+    "weight": 0.25
+  },
+  "avoidance_patterns": {
+    "description": "回避模式——转移话题或拒绝直接回答",
+    "indicators": [
+      "answering with a question", "changing the subject",
+      "vague responses", "repeating the question back",
+      "反问代替回答", "转移话题", "含糊其辞", "重复问题不回答"
+    ],
+    "weight": 0.45
+  },
+  "emotional_manipulation": {
+    "description": "情感操控——用情感诉求代替事实陈述",
+    "indicators": [
+      "appealing to sympathy", "playing the victim",
+      "guilt-tripping", "excessive flattery",
+      "博取同情", "扮演受害者", "道德绑架", "过度讨好"
+    ],
+    "weight": 0.5
+  }
+}
