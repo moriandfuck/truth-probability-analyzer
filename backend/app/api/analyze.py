@@ -46,10 +46,10 @@ async def analyze(req: AnalyzeRequest):
     prompt, linguistic_score, reasons = analyzer.build_prompt(features)
 
     model_name = req.model_name_override or {
-        "local": "deepseek-r1:14b",
+        "local": "deepseek-r1:7b",
         "deepseek": "deepseek-reasoner",
         "openai": "gpt-4o",
-    }.get(req.model, "deepseek-r1:14b")
+    }.get(req.model, "deepseek-r1:7b")
 
     api_key = None
     if req.model in ("deepseek", "openai"):

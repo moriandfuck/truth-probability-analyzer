@@ -13,7 +13,7 @@ Integrated with [NewsNow](https://github.com/ourongxing/newsnow) for real-time n
 ## Features · 功能
 
 - **Linguistic Analysis · 语言学分析**: Detects hedging, overemphasis, distancing language, unnecessary details, avoidance patterns, and emotional manipulation / 检测模糊限定词、过度强调词、距离化语言、过度细节、回避模式和情感操控
-- **Multi-Model Support · 多模型支持**: Local Ollama (DeepSeek-R1 14B), DeepSeek API, OpenAI API / 本地 Ollama + DeepSeek API + OpenAI API
+- **Multi-Model Support · 多模型支持**: Local Ollama (DeepSeek-R1 7B), DeepSeek API, OpenAI API / 本地 Ollama + DeepSeek API + OpenAI API
 - **Glassmorphism UI · 液态玻璃界面**: White + lime green theme with liquid glass design / 白 + 青提绿主题，液态玻璃质感
 - **News Integration · 新闻集成**: Browse trending news from 40+ sources, analyze truth probability with one click / 浏览 40+ 新闻源，一键分析真实性
 - **Encrypted Key Storage · 密钥加密存储**: API keys encrypted at rest via Fernet / API Key 本地加密存储
@@ -24,7 +24,7 @@ Integrated with [NewsNow](https://github.com/ourongxing/newsnow) for real-time n
 
 ### Prerequisites · 环境要求
 
-- Docker Desktop（Ollama 容器已拉取 `deepseek-r1:14b`）
+- Docker Desktop（Ollama 容器已拉取 `deepseek-r1:7b`）
 - Python 3.11+
 - Node.js 20+（前端开发）
 

@@ -46,7 +46,7 @@ export function HomePage() {
           <div className="text-3xl mb-3">🧠</div>
           <h3 className="font-bold text-gray-900 mb-2">Deep Reasoning</h3>
           <p className="text-sm text-gray-500">
-            DeepSeek-R1 14B performs deep chain-of-thought reasoning for accurate deception judgment.
+            DeepSeek-R1 7B performs deep chain-of-thought reasoning for accurate deception judgment.
           </p>
         </GlassCard>
         <GlassCard>

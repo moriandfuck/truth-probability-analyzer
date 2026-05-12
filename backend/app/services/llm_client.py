@@ -24,7 +24,7 @@ class OllamaClient(BaseLLMClient):
     def is_available(self) -> bool:
         return True
 
-    async def query(self, prompt: str, model: str = "deepseek-r1:14b", **kwargs) -> str:
+    async def query(self, prompt: str, model: str = "deepseek-r1:7b", **kwargs) -> str:
         async with httpx.AsyncClient(timeout=120.0) as client:
             try:
                 resp = await client.post(
