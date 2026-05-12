@@ -43,7 +43,7 @@ export function NewsCard({ item }: NewsCardProps) {
               {item.source}
             </span>
             {item.hotScore && (
-              <span>🔥 {item.hotScore}</span>
+              <span>Hot: {item.hotScore}</span>
             )}
             {item.publishedAt && (
               <span>{new Date(item.publishedAt).toLocaleDateString()}</span>

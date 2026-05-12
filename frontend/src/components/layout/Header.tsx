@@ -2,10 +2,10 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const navItems = [
-  { path: '/', label: 'Home', icon: '🏠' },
-  { path: '/analyze', label: 'Analyze', icon: '🔍' },
-  { path: '/news', label: 'News', icon: '📰' },
-  { path: '/settings', label: 'Settings', icon: '⚙️' },
+  { path: '/', label: 'Home' },
+  { path: '/analyze', label: 'Analyze' },
+  { path: '/news', label: 'News' },
+  { path: '/settings', label: 'Settings' },
 ]
 
 export function Header() {
@@ -22,7 +22,7 @@ export function Header() {
         </Link>
 
         <nav className="flex items-center gap-1">
-          {navItems.map(({ path, label, icon }) => {
+          {navItems.map(({ path, label }) => {
             const isActive = location.pathname === path || (path !== '/' && location.pathname.startsWith(path))
             return (
               <Link key={path} to={path} className="no-underline">
@@ -40,10 +40,7 @@ export function Header() {
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    <span className="text-sm">{icon}</span>
-                    {label}
-                  </span>
+                  <span className="relative z-10">{label}</span>
                 </motion.div>
               </Link>
             )
