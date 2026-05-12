@@ -35,29 +35,53 @@
   },
   "unnecessary_details": {
     "description": "过度细节——通过堆砌无关细节让故事听起来可信",
-    "indicators": [
-      "excessive time references", "too many names",
-      "irrelevant backstory", "over-explaining simple actions",
-      "精确到几点几分", "过多的人名地名", "无关的背景补充",
-      "反复解释简单动作", "时间线过于详细"
+    "words": [
+      "几点几分", "当时是", "我记的很清楚", "具体来说", "详细说",
+      "at exactly", "specifically", "to be precise", "I remember clearly",
+      "那天是周", "当时我穿的", "还有一个人叫", "电话号码是"
+    ],
+    "regex": [
+      "\\d{1,2}[点时:]\\d{1,2}分?",
+      "星期[一二三四五六日天]",
+      "[0-9]{1,2}月[0-9]{1,2}[日号]",
+      "at \\d{1,2}[.:]\\d{2}"
     ],
     "weight": 0.25
   },
   "avoidance_patterns": {
     "description": "回避模式——转移话题或拒绝直接回答",
-    "indicators": [
-      "answering with a question", "changing the subject",
-      "vague responses", "repeating the question back",
-      "反问代替回答", "转移话题", "含糊其辞", "重复问题不回答"
+    "words": [
+      "你问我这个干嘛", "先不说这个", "这个问题不重要",
+      "我们还是说点别的", "你怎么会这么想", "谁跟你说的",
+      "你为什么这么问", "你在怀疑我吗", "这件事以后再说",
+      "why do you ask", "let's not talk about that",
+      "who told you that", "why are you asking me this",
+      "你觉得呢", "你说呢", "你猜",
+      "这不重要", "无所谓"
+    ],
+    "regex": [
+      "你怎么(老|总是|又|会|能).*[?？]",
+      "为什么.*问我.*[?？]",
+      "\\S*不是重点",
+      "你.*在怀疑"
     ],
     "weight": 0.45
   },
   "emotional_manipulation": {
     "description": "情感操控——用情感诉求代替事实陈述",
-    "indicators": [
-      "appealing to sympathy", "playing the victim",
-      "guilt-tripping", "excessive flattery",
-      "博取同情", "扮演受害者", "道德绑架", "过度讨好"
+    "words": [
+      "你都不相信我", "我好委屈", "我很伤心", "你怎么能这样对我",
+      "我这么信任你", "你不知道我有多难", "我为了你",
+      "要不是因为你", "我这么辛苦", "你必须相信我",
+      "you don't trust me", "how could you", "after all I've done",
+      "if you really love me", "I've been through so much",
+      "求求你了", "可怜可怜我", "看在我",
+      "我上有老下有小", "我容易吗"
+    ],
+    "regex": [
+      "我.*这么.*你.*[?？]?",
+      "你.*(不相信|不信任|怀疑).*我",
+      "我.*(为|对|帮).*你.*(这么多|那么多|一切)"
     ],
     "weight": 0.5
   }

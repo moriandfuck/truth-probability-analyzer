@@ -83,14 +83,18 @@ async def analyze(req: AnalyzeRequest):
 
     # Build category breakdown
     m = features["matched_patterns"]
-    cat_weights = {
-        "hedging": ("模糊限定词", analyzer.indicators["hedging_words"]["weight"]),
-        "overemphasis": ("过度强调词", analyzer.indicators["overemphasis_words"]["weight"]),
-        "distancing": ("距离化语言", analyzer.indicators["distancing_language"]["weight"]),
+    cat_map = {
+        "hedging_words": "模糊限定词",
+        "overemphasis_words": "过度强调词",
+        "distancing_language": "距离化语言",
+        "unnecessary_details": "过度细节",
+        "avoidance_patterns": "回避模式",
+        "emotional_manipulation": "情感操控",
     }
     category_breakdown = []
-    for key, (name, weight) in cat_weights.items():
-        if m[key]:
+    for key, name in cat_map.items():
+        if m.get(key):
+            weight = analyzer.indicators[key]["weight"]
             n = len(m[key])
             s = min(n * weight * 30, 25)
             category_breakdown.append(LinguisticDetail(

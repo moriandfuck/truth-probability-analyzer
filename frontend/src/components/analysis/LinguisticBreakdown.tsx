@@ -22,7 +22,14 @@ export function LinguisticBreakdown({ breakdown, density, patterns }: Linguistic
     )
   }
 
-  const colors = ['#B9F500', '#8BC34A', '#689f38', '#f59e0b', '#f97316', '#ef4444']
+  const colors: Record<string, string> = {
+  '模糊限定词': '#B9F500',
+  '过度强调词': '#f59e0b',
+  '距离化语言': '#f97316',
+  '过度细节': '#8BC34A',
+  '回避模式': '#ef4444',
+  '情感操控': '#e11d48',
+}
 
   return (
     <div>
@@ -44,7 +51,7 @@ export function LinguisticBreakdown({ breakdown, density, patterns }: Linguistic
             <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
-                style={{ backgroundColor: colors[i % colors.length] }}
+                style={{ backgroundColor: colors[item.category] || '#B9F500' }}
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.min((item.score_contribution / 25) * 100, 100)}%` }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
